@@ -8,7 +8,7 @@ import {
     CrudSorting,
     MetaDataQuery,
 } from "../../interfaces";
-import { useDataProvider } from "../../hooks/data";
+import { useDataProvider } from ".";
 import { queryKeys } from "../../definitions/helpers/queryKeys";
 
 export interface UseListConfig {
