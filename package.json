@@ -1,6 +1,6 @@
 {
     "name": "@smelt/core",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "making development on strapi v4 easier.",
     "private": false,
     "main": "dist/index.js",
