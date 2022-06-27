@@ -256,18 +256,6 @@ declare type UpdateParams<TVariables> = {
     invalidates?: Array<keyof IQueryKeys>;
 };
 declare type UseUpdateReturnType<TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TVariables = {}> = UseMutationResult<UpdateResponse<TData>, TError, UpdateParams<TVariables>, PrevContext<TData>>;
-/**
- * `useUpdate` is a modified version of `react-query`'s {@link https://react-query.tanstack.com/reference/useMutation `useMutation`} for update mutations.
- *
- * It uses `update` method as mutation function from the `dataProvider` which is passed to `<Refine>`.
- *
- * @see {@link https://refine.dev/docs/api-references/hooks/data/useUpdate} for more details.
- *
- * @typeParam TData - Result data of the query extends {@link https://refine.dev/docs/api-references/interfaceReferences#baserecord `BaseRecord`}
- * @typeParam TError - Custom error object that extends {@link https://refine.dev/docs/api-references/interfaceReferences#httperror `HttpError`}
- * @typeParam TVariables - Values for mutation function
- *
- */
 declare const useUpdate: <TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TVariables = {}>() => UseUpdateReturnType<TData, TError, TVariables>;
 
 declare type useCreateParams<TVariables> = {
@@ -349,6 +337,19 @@ declare type UseCustomProps<TData, TError, TQuery, TPayload> = {
     metaData?: MetaDataQuery;
     dataProviderName?: string;
 };
+/**
+ * `useCustom` is a modified version of `react-query`'s {@link https://react-query.tanstack.com/guides/queries `useQuery`} used for custom requests.
+ *
+ * It uses the `custom` method from the `dataProvider` which is passed to `<Refine>`.
+ *
+ * @see {@link https://refine.dev/docs/core/hooks/data/useCustom} for more details.
+ *
+ * @typeParam TData - Result data of the query extends {@link https://refine.dev/docs/core/interfaceReferences#baserecord `BaseRecord`}
+ * @typeParam TError - Custom error object that extends {@link https://refine.dev/docs/core/interfaceReferences#httperror `HttpError`}
+ * @typeParam TQuery - Values for query params
+ * @typeParam TPayload - Values for params
+ *
+ */
 declare const useCustom: <TData = BaseRecord, TError extends HttpError = HttpError, TQuery = unknown, TPayload = unknown>({ url, method, config, queryOptions, metaData, dataProviderName, }: UseCustomProps<TData, TError, TQuery, TPayload>) => QueryObserverResult<CustomResponse<TData>, TError>;
 
 declare const useDataProvider: () => (dataProviderName?: string | undefined) => IDataContextProvider;
