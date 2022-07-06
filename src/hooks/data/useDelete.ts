@@ -111,8 +111,6 @@ export const useDelete = <
                     if (onCancel) {
                         onCancel(cancelMutation);
                     }
-
-                   
                 },
             );
             return deletePromise;
@@ -204,8 +202,6 @@ export const useDelete = <
                     dataProviderName,
                     invalidates,
                 });
-
-              
             },
             onSuccess: (
                 _data,
@@ -215,8 +211,6 @@ export const useDelete = <
 
                 // Remove the queries from the cache:
                 queryClient.removeQueries(context.queryKey.detail(id));
-
-               
             },
             onError: (
                 err: TError,
@@ -231,9 +225,6 @@ export const useDelete = <
                 }
 
                 if (err.message !== "mutationCancelled") {
-                   
-
-                   
                 }
             },
         },
